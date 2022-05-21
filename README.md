@@ -1,9 +1,9 @@
 ## Dependencies
-[Hacking](https://github.com/Jesper-Hustad/NoPixel-minigame)
-[Thermite](https://github.com/pushkart2/memorygame)
-[qb-lock](https://github.com/Nathan-FiveM/qb-lock)
-[MLO](https://www.patreon.com/tobiidk)
-[qb-doorlock](https://github.com/qbcore-framework/qb-doorlock)(The one I use is included if you want to use it instead)
+* [Hacking](https://github.com/Jesper-Hustad/NoPixel-minigame)
+* [Thermite](https://github.com/pushkart2/memorygame)
+* [qb-lock](https://github.com/Nathan-FiveM/qb-lock)
+* [MLO](https://www.patreon.com/tobiidk)
+* [qb-doorlock](https://github.com/qbcore-framework/qb-doorlock)(The one I use is included if you want to use it instead)
 
 ## Disclaimer 
 Tobii has recently updated his Bobcat MLO and lowered it, this script was made before with the higher MLO.
