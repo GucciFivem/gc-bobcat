@@ -1,0 +1,122 @@
+<html>
+    <head>
+        <script src="nui://game/ui/jquery.js" type="text/javascript"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.1.1/howler.min.js" type="text/javascript"></script>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@800&display=swap" rel="stylesheet">
+
+        <script>
+            window.addEventListener('message', function(event) {
+                if (event.data.type == "open") {
+                  var color = '#147efb'
+                  if(event.data.color == 'error') {
+                    color = '#fc6b56'
+                  } else if(event.data.color == 'success') {
+                    color = '#3ab63e'
+                  } else if(event.data.color == 'elevated') {
+                    color = '#AE1DAE'
+                  } else if(event.data.color == 'grey') {
+                    color = '#918E85'
+                  } else if(event.data.color == 'water') {
+                    color = '#147efb'
+                  } else if(event.data.color == 'lava') {
+                    color = '#E42217'
+                  } else if(event.data.color == 'red') {
+                    color = '#ff0000'
+                  } else if(event.data.color == 'green') {
+                    color = '#00ff00'
+                  }
+                                    
+
+                  $("#container").show().removeClass("slide-out").addClass("container")
+                  $("#text").css('background-color' , color)
+                    $("#text").html(event.data.text)
+
+                } else if (event.data.type == "close") {
+
+                  var a = $("#container").removeClass("container").addClass("slide-out")
+
+               
+                } else {
+                  $("#container").hide()
+
+                }
+            });
+
+
+        </script>
+    </head> 
+    <body>
+
+        <div id="container" style="display: none;">
+            <div id="text" style="width:fit-content;position: relative;margin-top:25%;margin-left: 5px;color:whitesmoke;  text-align: left;font-size: 17px;white-space: nowrap;border-radius: 12px; min-width: 1%;padding:14px">[E] Evidence</div>
+        </div>  
+    </body>
+    <style>
+   
+
+   @keyframes slidein {
+  from {
+    transform: translateX(-10%);
+  }
+
+  to {
+    opacity: 100;
+
+    transform: translateX(0%);
+  }
+}
+@keyframes slideout {
+  from {
+    transform: translateX(0%);
+  }
+
+  to {
+    transform: translateX(-15%);
+    opacity: 0;
+  }
+}
+
+@import "compass/css3";
+        body{
+          font-family: "Courier New", Courier, monospace;
+          font-weight:0;
+          font-size:21px;
+          
+          margin-left:auto;
+          margin-right:auto;
+          text-align:center;
+          letter-spacing:2px;
+          color:#e6e6e5e3;
+          width:100%;
+          opacity:1;
+          font-family: Arial, Helvetica, sans-serif;
+          letter-spacing: 0.7px;
+          font-weight: 600;
+          text-decoration: none;
+          font-style: normal;
+          font-variant: small-caps;
+          text-transform: none;
+          position: relative;
+          z-index: 99;
+         }
+
+        .container{
+          animation: slidein 0.5s forwards;
+          -webkit-animation: slidein 0.5s forwards;
+        }
+
+        .slide-out{
+          animation: slideout 0.5s forwards;
+          -webkit-animation: slideout 0.5s forwards;
+
+        }
+        body::first-letter{
+          text-shadow: 1px 1px 0px rgba(0,0,0,1);    
+        }
+    
+   
+
+
+    </style>
+</html>
