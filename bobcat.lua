@@ -30,18 +30,6 @@ local function loadAnimDict(dict)
     end
 end
 
-local function loadModel(model)
-    if type(model) == 'number' then
-        model = model
-    else
-        model = GetHashKey(model)
-    end
-    while not HasModelLoaded(model) do
-        RequestModel(model)
-        Wait(0)
-    end
-end
-
 RegisterNetEvent('updatebobcat', function()
     local interiorid = GetInteriorAtCoords(883.4142, -2282.372, 31.44168)
 	ActivateInteriorEntitySet(interiorid, "np_prolog_broken")
