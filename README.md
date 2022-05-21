@@ -21,5 +21,9 @@ This code is pretty shit and is messy, but it works.
 ## Bugs
 Two of the four trollys conflict with the MLO and won't spawn (will fix when I have time)
 
+## Preview
+[Video](https://www.youtube.com/watch?v=zi26tHBTL2A&t=56s)
+
 ## Support
 [Discord](https://discord.gg/c3RN24zUbc)
+
