@@ -79,3 +79,11 @@ RegisterNetEvent('gc-bobcatheist:server:LockerItem', function(type)
     TriggerClientEvent('inventory:client:ItemBox', src, QBCore.Shared.Items['rifle_ammo'], "add")
     player.Functions.AddItem('rifle_ammo', 10, false)
 end)
+
+RegisterNetEvent('sync', function(status)
+    if status == true then
+        return
+    elseif status == false then
+        TriggerClientEvent('bomb-anim')
+    end
+end)
