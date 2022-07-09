@@ -30,12 +30,16 @@ local function loadAnimDict(dict)
     end
 end
 
-RegisterNetEvent('updatebobcat', function()
+RegisterNetEvent('updatebobcat2', function()
     local interiorid = GetInteriorAtCoords(883.4142, -2282.372, 31.44168)
 	ActivateInteriorEntitySet(interiorid, "np_prolog_broken")
 	RemoveIpl(interiorid, "np_prolog_broken")
 	DeactivateInteriorEntitySet(interiorid, "np_prolog_clean")
 	RefreshInterior(interiorid)
+end)
+
+RegisterNetEvent('updatebobcat', function()
+    TriggerServerEvent('updatebobcat3')
 end)
 
 function Carts()

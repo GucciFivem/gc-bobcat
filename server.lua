@@ -87,3 +87,7 @@ RegisterNetEvent('sync', function(status)
         TriggerClientEvent('bomb-anim')
     end
 end)
+
+RegisterServerEvent('updatebobcat3', function()
+    TriggerClientEvent('updatebobcat2')
+end)
