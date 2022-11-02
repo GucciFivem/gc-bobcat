@@ -42,7 +42,6 @@ QBCore.Functions.CreateCallback('gc-bobcatheist:server:getCops', function(source
     cb(amount)
 end)
 
-
 RegisterServerEvent('gc-bobcatheist:server:ThermitePtfx', function(coords)
     TriggerClientEvent('gc-bobcatheist:client:ThermitePtfx', -1, coords)
 end)

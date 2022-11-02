@@ -38,10 +38,6 @@ RegisterNetEvent('updatebobcat2', function()
 	RefreshInterior(interiorid)
 end)
 
-RegisterNetEvent('updatebobcat', function()
-    TriggerServerEvent('updatebobcat3')
-end)
-
 function Carts()
     local model = "ch_prop_cash_low_trolly_01c"
     RequestModel(model)
@@ -216,7 +212,7 @@ RegisterNetEvent('gc-bobcatheist:client:CashGrab', function()
 	NetworkAddEntityToSynchronisedScene(bag, scene2, "anim@heists@ornate_bank@grab_cash", "bag_grab", 4.0, -8.0, 1)
 	NetworkAddEntityToSynchronisedScene(trollyobj, scene2, "anim@heists@ornate_bank@grab_cash", "cart_cash_dissapear", 4.0, -8.0, 1)
 	NetworkStartSynchronisedScene(scene2)
-	Wait(37000)
+	Wait(37000) -- why tf did I put this here??
 	local scene3 = NetworkCreateSynchronisedScene(GetEntityCoords(trollyobj), GetEntityRotation(trollyobj), 2, false, false, 1065353216, 0, 1.3)
 	NetworkAddPedToSynchronisedScene(ped, scene3, "anim@heists@ornate_bank@grab_cash", "exit", 1.5, -4.0, 1, 16, 1148846080, 0)
 	NetworkAddEntityToSynchronisedScene(bag, scene3, "anim@heists@ornate_bank@grab_cash", "bag_exit", 4.0, -8.0, 1)
@@ -302,7 +298,12 @@ end
 
 function HackFailedThermite()
     QBCore.Functions.Notify("Should of worked! sikeee you failed L bozo", "error", "6000")
-    if math.random(1, 100) <= 40 then
+    local num = math.random(1, 100)
+    local chance = 40 -- 60% chance to leave a fingerprint
+    local ped = GetPlayerId()
+    local pos = GetEntityCoords(ped)
+    print(num)
+    if num >= chance then 
         TriggerServerEvent("evidence:server:CreateFingerDrop", pos)
         QBCore.Functions.Notify("You left a fingerprint!", "success", "6000")
     end
@@ -313,7 +314,6 @@ function HackSuccessThermite()
     ClearPedTasksImmediately(PlayerPedId())
     TriggerServerEvent("gc-bobcatheist:successthermite")
     TriggerServerEvent('gc-bobcatheist:server:cooldown')
-    --TriggerServerEvent('qb-doorlock:server:updateState', Config.Door1, false)
 end
 
 function progressthermite()
@@ -419,7 +419,6 @@ function ThermiteEffect2()
     local effect = StartParticleFxLoopedAtCoord("scr_heist_ornate_thermal_burn", ptfx, 0.0, 0.0, 0.0, 1.0, false, false, false, false)
     Citizen.Wait(4000)
     StopParticleFxLooped(effect, 0)
-    --Citizen.Wait(12000)
     ClearPedTasks(ped)
     Citizen.Wait(2000)
     ClearPedTasks(ped)
@@ -781,9 +780,11 @@ function BombPlanting()
     Wait(Config.Time * 1000)
     AddExplosion(Config.Explosion[1].x, Config.Explosion[1].y, Config.Explosion[1].z, 82, 5.0, true, false, 15.0)
     DeleteObject(thermite)
-    --TriggerServerEvent('sync')
     Wait(50)
-    TriggerEvent("updatebobcat")
+    TriggerServerEvent('updatebobcat3')
+    print("fixed -- only took 5 months lol")
+    print('This project will no longer be mantained by me')
+    print("discord.gg/RubyRP")
     Carts()
 end
 
